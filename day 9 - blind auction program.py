@@ -34,5 +34,5 @@ for item in auction:
         top_bid = bid_amount
         top_bidder = bid_user
 clear()
-name="Tim"
+
 print(f"The winner is {top_bidder} with a bid of ${top_bid}")
