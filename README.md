@@ -5,7 +5,7 @@ In order to get better at Python, I've undertaken a 100 days of code challenge w
 
 I've written my background to starting on my website at https://devopsapprentice.com/learning-to-code-in-python-day1/
 
-I've put the code up that I've written just to keep track of all of the various projects I work on. Feel free to reuse anything that looks interesting.
+I've put the code up that I've written just to keep track of all of the various projects I work on. 
 
 Thanks,
 Tim
