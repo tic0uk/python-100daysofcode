@@ -1,12 +1,3 @@
-# paddle 1
-# paddle 2
-# scoreboard
-# ball
-# background
-# collision with wall
-# collision with paddle
-# detect when paddle misses
-
 from turtle import Screen
 from paddle import Paddle
 from ball import Ball
