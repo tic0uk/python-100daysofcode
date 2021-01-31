@@ -9,7 +9,7 @@ my_window.bgpic(background)
 choice = my_window.textinput(title="Welcome to turtle races!", prompt="Which turtle will win the race? Enter a "
                                                                       "colour: ")
 
-my_window.screensize(500, 400)
+my_window.screensize(848, 1261)
 x_axis = -400
 y_axis = -550
 list_of_turtles = []
