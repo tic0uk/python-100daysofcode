@@ -11,14 +11,16 @@ color_list = [(131, 164, 204), (228, 149, 99), (30, 44, 64), (166, 58, 48), (202
 
 my_screen = Screen()
 my_screen.colormode(255)
+my_screen.setup(width=1000, height=1000)
 
 timmy = Turtle()
 
 timmy.color("green")
-timmy.pu()
-timmy.setpos(-450, -500)
-timmy.speed("fastest")
 timmy.hideturtle()
+timmy.pu()
+timmy.setpos(-450, -450)
+timmy.speed("fastest")
+
 
 
 for _ in range(10):
