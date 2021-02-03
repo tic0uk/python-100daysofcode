@@ -6,5 +6,5 @@ with open("./Input/Names/invited_names.txt", "r") as names:
     for name in list_of_names:
         firstname = name.strip()
         mail_merge = contents.replace("[name]", firstname)
-        with open(f"./Output/ReadyToSend/{firstname}.txt", "w") as product:
+        with open(f"./Output/ReadyToSend/letter_for_{firstname}.txt", "w") as product:
             product.write(mail_merge)
