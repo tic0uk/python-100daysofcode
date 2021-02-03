@@ -1,7 +1,6 @@
 import turtle
 import pandas
 
-
 screen = turtle.Screen()
 screen.setup(width=725, height=491)
 screen.title("U.S. States Game")
@@ -10,37 +9,27 @@ screen.addshape(image)
 turtle.shape(image)
 
 data = pandas.read_csv("50_states.csv")
-states = data.state.to_list()
+all_states = data.state.to_list()
 
-total_states = len(states)
-score = 0
+guessed_states = []
 
-correct_answers = []
-is_game_on = True
-
-while is_game_on:
-
-    answer_state = screen.textinput(title="Make a guess", prompt=f"{score}/{total_states} States Correct. "
+while len(guessed_states) < 50:
+    answer_state = screen.textinput(title="Make a guess", prompt=f"{len(guessed_states)}/50 States Correct. "
                                                                  "Guess a state!").title()
     if answer_state == "Exit":
         break
-    for state in states:
-        if answer_state == state and answer_state not in correct_answers:
-            correct_answers.append(state)
-            score += 1
-            answer_row = data[data.state == f"{answer_state}"]
-            answer_x = int(answer_row.x)
-            answer_y = int(answer_row.y)
-            state_text = turtle.Turtle()
-            state_text.hideturtle()
-            state_text.pu()
-            state_text.goto(x=answer_x, y=answer_y)
-            state_text.write(f"{state}")
-            state_text.color("black")
+    if answer_state in all_states:
+        guessed_states.append(answer_state)
+        t = turtle.Turtle()
+        t.hideturtle()
+        t.penup()
+        state_data = data[data.state == answer_state]
+        t.goto(int(state_data.x), int(state_data.y))
+        t.write(state_data.state.item())
 
 missing_states = []
-for state in states:
-    if state not in correct_answers:
+for state in all_states:
+    if state not in guessed_states:
         missing_states.append(state)
 df = pandas.DataFrame(missing_states, columns=['States_to_learn'])
 
