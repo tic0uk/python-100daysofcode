@@ -17,6 +17,9 @@ while len(guessed_states) < 50:
     answer_state = screen.textinput(title="Make a guess", prompt=f"{len(guessed_states)}/50 States Correct. "
                                                                  "Guess a state!").title()
     if answer_state == "Exit":
+        missing_states = [state for state in all_states if state not in guessed_states]
+        df = pandas.DataFrame(missing_states, columns=['States_to_learn'])
+        df.to_csv("states_to_learn.csv")
         break
     if answer_state in all_states:
         guessed_states.append(answer_state)
@@ -27,10 +30,4 @@ while len(guessed_states) < 50:
         t.goto(int(state_data.x), int(state_data.y))
         t.write(state_data.state.item())
 
-missing_states = []
-for state in all_states:
-    if state not in guessed_states:
-        missing_states.append(state)
-df = pandas.DataFrame(missing_states, columns=['States_to_learn'])
 
-df.to_csv("states_to_learn.csv")
