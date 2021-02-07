@@ -36,9 +36,9 @@ def reset_timer():
 def start_timer():
     global reps
     reps += 1
-    work_sec = 5 #WORK_MIN * 60
-    short_break_sec = 5 #SHORT_BREAK_MIN * 60
-    long_break_sec = 5 #LONG_BREAK_MIN * 60
+    work_sec = WORK_MIN * 60
+    short_break_sec = SHORT_BREAK_MIN * 60
+    long_break_sec = LONG_BREAK_MIN * 60
     start_button["state"] = "disabled"
     reset_button["state"] = "active"
 
@@ -72,16 +72,13 @@ def count_down(count):
     count_seconds = count % 60
 
     if count_seconds < 10:
-        print("part 1")
         count_seconds = f"0{count_seconds}"
 
     canvas.itemconfig(timer_text, text=f"{count_min}:{count_seconds}")
     if count > 0:
-        print("part 2")
         global timer
         timer = window.after(1000, count_down, count - 1)
     else:
-        print("part 3")
         start_timer()
         global marks
         marks = ""
